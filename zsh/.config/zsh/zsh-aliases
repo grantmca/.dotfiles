@@ -1,0 +1,13 @@
+#!/bin/sh
+# For bare config
+alias config='/usr/bin/git --git-dir=/Users/$USERNAME/.cfg/ --work-tree=/Users/$USERNAME'
+
+# Colorize grep output
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# Color the list funcition
+alias ls='ls -G'
+
+alias spt-reset="brew services restart spotifyd"
