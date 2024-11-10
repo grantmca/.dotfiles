@@ -1,6 +1,4 @@
 #!/bin/sh
-# For bare config
-alias config='/usr/bin/git --git-dir=/Users/$USERNAME/.cfg/ --work-tree=/Users/$USERNAME'
 
 # Colorize grep output
 alias grep='grep --color=auto'
