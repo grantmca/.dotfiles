@@ -2,3 +2,7 @@ zsh/.config/zsh/.zcompdump
 zsh/.config/zsh/.zsh_history
 zsh/.config/zsh/plugins/
 zsh/.config/zsh/themes/
+ssh/.ssh/id_rsa
+ssh/.ssh/id_rsa.pub
+ssh/.ssh/know_hosts
+ssh/.ssh/know_hosts.old
