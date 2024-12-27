@@ -19,13 +19,14 @@ keymap("n", "x", '"_x', opts)
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", add_desc(opts, "Clear Highlight"))
 keymap("n", "<leader>w", "<cmd>w<CR>", add_desc(opts, "Save Buffer"))
 
--- Navigate buffers
-keymap("n", "<S-l>", "<cmd>BufferLineCycleNext<cr>", opts)
-keymap("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", opts)
+-- Navigate bNvimTreeToggleuffers
+keymap("n", "<S-l>", "<cmd>bn<cr>", opts)
+keymap("n", "<S-h>", "<cmd>bp<cr>", opts)
 
 -- File Navigation
 -- NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>e", ":Ex<cr>", opts)
+keymap("n", "<leader>c", ":bd<cr>", opts)
 
 -- Insert --
 -- Press jk fast to exit insert mode
