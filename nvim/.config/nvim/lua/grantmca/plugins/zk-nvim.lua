@@ -46,5 +46,6 @@ return {
       zk.edit(options, { title = "Zk Orphans" })
     end)
 
+    vim.api.nvim_set_keymap("v", "<leader>zo", ":'<Cmd>ZkOrphans<CR>", opts)
   end
 }

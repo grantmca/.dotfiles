@@ -35,7 +35,7 @@ source "$HOME/.config/zsh/zsh-aliases"
 source "$HOME/.config/zsh/zsh-exports"
 # source "$HOME/.config/zsh/zsh-work-exports"
 source "$HOME/.config/zsh/zsh-history"
-# zsh_add_file "$HOME/.config/zsh/zsh-keys"
+source "$HOME/.config/zsh/zsh-keys"
 
 #Enviroment variables set everywhere
 export EDITOR="nvim"

@@ -25,8 +25,9 @@ keymap("n", "<S-h>", "<cmd>bp<cr>", opts)
 
 -- File Navigation
 -- NvimTree
-keymap("n", "<leader>e", ":Ex<cr>", opts)
-keymap("n", "<leader>c", ":bd<cr>", opts)
+keymap("n", "<leader>e", "<cmd>Ex<cr>", opts)
+keymap("n", "<leader>c", "<cmd>bd<cr>", opts)
+keymap("n", "<leader><leader>c", "<cmd>bufdo<cr>", opts)
 
 -- Insert --
 -- Press jk fast to exit insert mode
@@ -38,13 +39,13 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Move text up and down
-keymap("v", "J", ":m .+1<CR>==", opts)
-keymap("v", "K", ":m .-2<CR>==", opts)
+keymap("v", "J", "<cmd>m .+1<CR>==", opts)
+keymap("v", "K", "<cmd>m .-2<CR>==", opts)
 
 -- Move text up and down
 -- Visual Block --
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "J", "<cmd>move '>+1<CR>gv-gv", opts)
+keymap("x", "K", "<cmd>move '<-2<CR>gv-gv", opts)
 
 -- Command --
 -- Menu navigation
