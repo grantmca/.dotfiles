@@ -39,7 +39,7 @@ source "$HOME/.config/zsh/zsh-history"
 
 #Enviroment variables set everywhere
 export EDITOR="nvim"
-export TERMINAL="WezTerm"
+export TERMINAL="Ghostty"
 export BROWSER="firefox"
 export TERM="xterm-256color"
 
