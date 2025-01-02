@@ -147,7 +147,7 @@ return {
         client.server_capabilities.signatureHelpProvider = false
         on_attach(client, bufnr)
       end,
-      cmd = {'/usr/bin/clangd'},
+      cmd = {'/usr/bin/clangd', '--background-index', '--clang-tidy', '--log=verbose'},
       capabilities = capabilities,
     })
 

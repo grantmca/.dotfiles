@@ -1,0 +1,8 @@
+font-family = "FiraCode Nerd Font
+theme = tokyonight-storm
+window-padding-color = background
+font-feature = -liga
+window-padding-y = 0,0
+window-padding-x = 0,0
+window-decoration = false
+macos-non-native-fullscreen = true
