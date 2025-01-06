@@ -25,9 +25,9 @@ keymap("n", "<S-h>", "<cmd>bp<cr>", opts)
 
 -- File Navigation
 -- NvimTree
-keymap("n", "<leader>e", "<cmd>Ex<cr>", opts)
+keymap("n", "<leader>e", "<cmd>Explore<cr>", opts)
 keymap("n", "<leader>c", "<cmd>bd<cr>", opts)
-keymap("n", "<leader><leader>c", "<cmd>bufdo<cr>", opts)
+keymap("n", "<leader><leader>c", "<cmd>bufdo bd<cr>", opts)
 
 -- Insert --
 -- Press jk fast to exit insert mode
