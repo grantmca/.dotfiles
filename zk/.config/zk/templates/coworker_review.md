@@ -3,7 +3,7 @@ title: {{title}} Reveiw
 date: {{format-date now "long"}}
 tags: [review]
 ---
-# {{title}} Feedback 
+# {{title}} Feedback
 
 ## What strengths do they demonstrate through their work?
 
