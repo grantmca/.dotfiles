@@ -21,6 +21,17 @@ return {
       return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
     end
 
+    local source_list = {
+      { name = "nvim_lsp" },
+      { name = "luasnip" }, -- snippets
+      { name = "buffer" }, -- text within current buffer
+      { name = "path" }, -- file system paths
+    }
+
+    if os.getenv("COPILOT") == "on" then
+      table.insert(source_list, 2, { name = "copilot" })
+    end
+
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -73,13 +84,7 @@ return {
         end, {"i","s",}),
       }),
       -- sources for autocompletion
-      sources = cmp.config.sources({
-        -- { name = "copilot"},
-        { name = "nvim_lsp" },
-        { name = "luasnip" }, -- snippets
-        { name = "buffer" }, -- text within current buffer
-        { name = "path" }, -- file system paths
-      }),
+      sources = cmp.config.sources(source_list),
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
         format = lspkind.cmp_format({

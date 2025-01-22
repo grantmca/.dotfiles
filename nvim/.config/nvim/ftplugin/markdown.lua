@@ -25,3 +25,4 @@ if require("zk.util").notebook_root(vim.fn.expand('%:p')) ~= nil then
 end
 
 vim.opt.wrap = true;
+vim.opt.spell = true;

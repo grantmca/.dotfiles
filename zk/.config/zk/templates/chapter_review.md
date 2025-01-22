@@ -1,9 +1,9 @@
 ---
-title: {{title}} Chapter {{extra.count}} Reveiw
+title: {{title}}
 date: {{format-date now "long"}}
-tags: [book, {{title}}]
+tags: []
 ---
-# {{title}} Chapter {{extra.count}} Reveiw
+# {{title}}
 
 ## What is something new that you learned from this chapter
 

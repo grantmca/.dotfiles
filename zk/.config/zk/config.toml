@@ -92,7 +92,7 @@ conf = '$EDITOR "$HOME/.config/zk/config.toml"'
 Configure = '$EDITOR "$HOME/.config/zk/config.toml"'
 ls = "zk list $@"
 ed = "zk edit $@"
-chapter_review = 'book=$(zk list --tag "book" --format "{{title}}" --quiet | fzf) && read "input2?Enter chapter title: " && zk new --template chapter_review.md --title "${book} - ${input2} Review"'
+review_chapter= 'book=$(zk list --tag "book" --format "{{title}}" --quiet | fzf) && read "input2?Enter chapter title: " && zk new --template chapter_review.md --title "${book} - ${input2} Review"'
 n = 'read "title?Enter the title: " && zk new --title "$title"'
 
 # LSP (EDITOR INTEGRATION)
