@@ -87,6 +87,8 @@ recents = "--sort created- --created-after 'last two months'"
 i = "zk edit --limit 1 --match=index --tag=home"
 # Show todays Jounral
 today = 'zk new --no-input "$ZK_NOTEBOOK_DIR/journal"'
+cd = 'cd $ZK_NOTEBOOK_DIR'
+sync = "pushd $ZK_NOTEBOOK_DIR > /dev/null && git add . && (git diff-index --quiet HEAD || git commit -m \"Auto Sync $(date '+%Y-%m-%d %H:%M:%S')\") && popd > /dev/null && git push"
 journal = 'zk edit journal --interactive'
 conf = '$EDITOR "$HOME/.config/zk/config.toml"'
 Configure = '$EDITOR "$HOME/.config/zk/config.toml"'
