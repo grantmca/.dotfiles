@@ -13,7 +13,7 @@ if env_var == "on" then
       ---@type string
       arg = "leetcode.nvim",
 
-      lang = "python",
+      lang = "python3",
 
       cn = { -- leetcode.cn
         enabled = false, ---@type boolean
