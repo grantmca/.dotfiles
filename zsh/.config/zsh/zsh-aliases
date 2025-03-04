@@ -9,3 +9,28 @@ alias fgrep='fgrep --color=auto'
 alias ls='ls -G'
 
 alias spt-reset="brew services restart spotifyd"
+
+decrypt_dotfiles() {
+  encrypted_files=(
+    ~/.dotfiles/github-copilot/.config/github-copilot/hosts.json
+    ~/.dotfiles/ssh/.ssh/id_rsa
+    ~/.dotfiles/ssh/.ssh/id_rsa.pub
+    ~/.dotfiles/task/.taskrc
+    ~/.dotfiles/zsh/.config/zsh/zsh-keys
+  )
+
+  ansible-vault decrypt "${encrypted_files[@]}"
+}
+
+encrypt_dotfiles() {
+  encrypted_files=(
+    ~/.dotfiles/github-copilot/.config/github-copilot/hosts.json
+    ~/.dotfiles/ssh/.ssh/id_rsa
+    ~/.dotfiles/ssh/.ssh/id_rsa.pub
+    ~/.dotfiles/task/.taskrc
+    ~/.dotfiles/zsh/.config/zsh/zsh-keys
+  )
+
+  ansible-vault encrypt "${encrypted_files[@]}"
+}
+
