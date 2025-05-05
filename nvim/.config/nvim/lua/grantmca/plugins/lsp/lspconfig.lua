@@ -2,14 +2,11 @@ return {
   'neovim/nvim-lspconfig',
   event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
-    'hrsh7th/cmp-nvim-lsp',
+    'saghen/blink.cmp',
   },
   config = function()
     local lspconfig = require('lspconfig')
     -- import cmp-nvim-lsp plugin
-    local cmp_nvim_lsp = require('cmp_nvim_lsp')
-
-
 
     local on_attach = function(client, bufnr)
       local opts = { noremap = true, silent = true }
@@ -46,7 +43,7 @@ return {
       keymap(bufnr, 'n', '<leader>lq', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
     end
 
-    local capabilities = cmp_nvim_lsp.default_capabilities()
+    local capabilities = require('blink.cmp').get_lsp_capabilities()
 
     local signs = { Error = ' ', Warn = ' ', Hint = '󰠠 ', Info = ' ' }
     for type, icon in pairs(signs) do
