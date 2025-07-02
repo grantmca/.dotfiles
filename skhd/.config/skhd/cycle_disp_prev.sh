@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 # Take window to prev screen
 prev_disp=$(yabai -m query --displays --display prev)
 if [[ -z "$prev_disp" ]]; then

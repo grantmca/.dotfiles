@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 # Take window to next screen
 next_disp=$(yabai -m query --displays --display next)
 if [[ -z "$next_disp" ]]; then

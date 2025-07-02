@@ -12,10 +12,7 @@ return {
 
     telescope.setup({
       extensions = {
-        fzy_native = {
-            override_generic_sorter = false,
-            override_file_sorter = true,
-        },
+        fzy_native = {override_generic_sorter = false, override_file_sorter = true,},
         fzf = {
           fuzzy = true,                    -- false will only do exact matching
           override_generic_sorter = true,  -- override the generic sorter
@@ -24,11 +21,7 @@ return {
           -- the default case_mode is "smart_case"
         }
       },
-      defaults = {
-        path_display = { "absolute" },
-        prompt_prefix = " ",
-        selection_caret = " ",
-      },
+      defaults = {path_display = { "absolute" }, prompt_prefix = " ", selection_caret = " ",},
     })
 
     telescope.load_extension("fzf")

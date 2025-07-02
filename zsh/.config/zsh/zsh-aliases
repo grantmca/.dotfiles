@@ -10,6 +10,10 @@ alias ls='ls -G'
 
 alias spt-reset="brew services restart spotifyd"
 
+record() {
+  ffmpeg -f avfoundation -i "3:1" -r 30 -c:v h264 -crf 23 -pix_fmt yuv420p -c:a aac output.mp4
+}
+
 decrypt_dotfiles() {
   encrypted_files=(
     ~/.dotfiles/github-copilot/.config/github-copilot/hosts.json

@@ -45,11 +45,13 @@ return {
 
     local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-    local signs = { Error = ' ', Warn = ' ', Hint = '󰠠 ', Info = ' ' }
-    for type, icon in pairs(signs) do
-      local hl = 'DiagnosticSign' .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
-    end
+    vim.diagnostic.config({
+      virtual_text = true,  -- optional: inline text
+      signs = true,          -- this enables your defined signs
+      underline = true,
+      update_in_insert = true,
+      severity_sort = true,
+    })
 
     -- configure html server
     lspconfig['html'].setup({
@@ -122,20 +124,27 @@ return {
     })
 
     -- configure solargraph server
-    lspconfig['solargraph'].setup({
+    -- lspconfig['solargraph'].setup({
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    --   settings = {
+    --     solargraph = {
+    --       diagnostics = true,
+    --     },
+    --   }
+    -- })
+
+    -- configure ruby-lsp server
+    lspconfig['ruby_lsp'].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-      settings = {
-        solargraph = {
-          diagnostics = true,
-        },
-      }
     })
 
     -- configure python server
     lspconfig['pyright'].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      root_dir = lspconfig.util.root_pattern("pyrightconfig.json", ".git")
     })
 
     -- configure c++ server
@@ -158,7 +167,7 @@ return {
       settings = {
         completeUnimported = true,
         usePlaceholders = true,
-        analyses = {
+        analysis = {
           unusedparams = true,
         },
       },

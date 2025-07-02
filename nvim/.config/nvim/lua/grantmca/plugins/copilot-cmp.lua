@@ -1,18 +1,18 @@
-local env_var = os.getenv("COPILOT")
-
-if env_var == "on" then
-  return   {
-    "zbirenbaum/copilot-cmp",
-    event = "InsertEnter",
-    dependencies = {
-      "zbirenbaum/copilot.lua",
+return {
+  "saghen/blink.cmp",
+  optional = true,
+  dependencies = { "fang2hou/blink-copilot" },
+  opts = {
+    sources = {
+      default = { "copilot" },
+      providers = {
+        copilot = {
+          name = "copilot",
+          module = "blink-copilot",
+          score_offset = 100,
+          async = true,
+        },
+      },
     },
-    config = function ()
-      require("copilot_cmp").setup({
-        fix_pairs = true,
-      })
-    end
-  }
-else
-  return {}
-end
+  },
+}

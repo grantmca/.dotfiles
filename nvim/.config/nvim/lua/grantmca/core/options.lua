@@ -34,6 +34,9 @@ local options = {
   scrolloff = 8, -- time before scrilling page 
   list = true, -- show listchars
   listchars = { tab = "» ", trail = "·", nbsp = "␣", extends = "❯", precedes = "❮" },
+  foldmethod = "expr", -- fold method
+  foldexpr = "nvim_treesitter#foldexpr()", -- fold expression
+  foldlevel = 99, -- fold level
 }
 
 

@@ -4,7 +4,9 @@ export PATH="$HOME/.local/bin":$PATH
 export PATH="$HOME/.npm-global/bin":$PATH
 export PATH="$HOME/.gem/ruby/2.6.0/bin":$PATH
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 export PATH="$HOME/Library/Python/3.9/bin":$PATH
+export PATH=$(brew --prefix rustup)/bin:$PATH
 export PYENV_ROOT="$HOME/.pyenv"
 export ZK_NOTEBOOK_DIR="$HOME/notebook"
 eval "$(rbenv init - zsh)"
@@ -13,3 +15,9 @@ eval "$(pyenv init -)"
 export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 export N_PREFIX=$HOME/.n
 export PATH=$N_PREFIX/bin:$PATH
+export PNPM_HOME="/Users/DMcAllister/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
