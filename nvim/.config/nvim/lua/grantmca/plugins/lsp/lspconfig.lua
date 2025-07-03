@@ -46,7 +46,7 @@ return {
     local capabilities = require('blink.cmp').get_lsp_capabilities()
 
     vim.diagnostic.config({
-      virtual_text = true,  -- optional: inline text
+      virtual_text = false,  -- optional: inline text
       signs = true,          -- this enables your defined signs
       underline = true,
       update_in_insert = true,
