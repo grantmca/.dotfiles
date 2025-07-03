@@ -16,6 +16,7 @@ record() {
 
 decrypt_dotfiles() {
   encrypted_files=(
+    ~/.dotfiles/github-copilot/.config/github-copilot/apps.json
     ~/.dotfiles/github-copilot/.config/github-copilot/hosts.json
     ~/.dotfiles/ssh/.ssh/id_rsa
     ~/.dotfiles/ssh/.ssh/id_rsa.pub
@@ -28,6 +29,7 @@ decrypt_dotfiles() {
 
 encrypt_dotfiles() {
   encrypted_files=(
+    ~/.dotfiles/github-copilot/.config/github-copilot/apps.json
     ~/.dotfiles/github-copilot/.config/github-copilot/hosts.json
     ~/.dotfiles/ssh/.ssh/id_rsa
     ~/.dotfiles/ssh/.ssh/id_rsa.pub
