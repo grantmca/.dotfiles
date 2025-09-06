@@ -1,0 +1,75 @@
+### Variables
+set $mod Mod4
+set $term ghostty
+set $menu wofi --show drun
+font pango:monospace 10
+
+### Minimal Appearance
+default_border none
+default_floating_border none
+hide_edge_borders smart
+
+# Define workspace names
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+
+# Create workspaces on startup
+exec swaymsg 'workspace $ws1; workspace $ws2; workspace $ws3; workspace $ws4; workspace $ws5; workspace $ws6; workspace $ws7; workspace $ws8; workspace $ws9;'
+
+### Workspace Switching + force splith layout
+bindsym Control+Left exec bash -c "$HOME/.config/sway/right_workspace.sh"
+bindsym Control+Right exec bash -c "$HOME/.config/sway/left_workspace.sh"
+
+# Switch workspace with 3-finger swipe gestures
+bindgesture swipe:left exec bash -c "$HOME/.config/sway/right_workspace.sh"
+bindgesture swipe:right exec bash -c "$HOME/.config/sway/left_workspace.sh"
+
+bindsym $mod+1 workspace $ws1; layout splith
+bindsym $mod+2 workspace $ws2; layout splith
+bindsym $mod+3 workspace $ws3; layout splith
+bindsym $mod+4 workspace $ws4; layout splith
+bindsym $mod+5 workspace $ws5; layout splith
+bindsym $mod+6 workspace $ws6; layout splith
+bindsym $mod+7 workspace $ws7; layout splith
+bindsym $mod+8 workspace $ws8; layout splith
+bindsym $mod+9 workspace $ws9; layout splith
+
+### Multi-Monitor Navigation
+bindsym $mod+Left focus output left
+bindsym $mod+Right focus output right
+bindsym $mod+Shift+Left move container to output left
+bindsym $mod+Shift+Right move container to output right
+bindsym $mod+Ctrl+Left move workspace to output left; focus output left
+bindsym $mod+Ctrl+Right move workspace to output right; focus output right
+
+### Window Management
+bindsym $mod+Tab focus mode_toggle
+bindsym $mod+Return exec $term
+bindsym $mod+Space exec $menu
+bindsym $mod+Shift+c kill
+bindsym $mod+Shift+Space floating toggle
+bindsym $mod+Shift+q exit
+bindsym $mod+Shift+r reload
+
+# Map Caps Lock to Control
+input type:keyboard xkb_options caps:ctrl_modifier
+# Apply to all keyboards
+input * xkb_options caps:ctrl_modifier
+# Invert scroll direction (natural scrolling)
+input type:touchpad natural_scroll enabled
+
+### Status Bar
+bar {
+  swaybar_command waybar
+}
+
+# Toggle Waybar visibility
+bindsym $mod+b exec bash -c "$HOME/.config/sway/toggle_waybar.sh"
+

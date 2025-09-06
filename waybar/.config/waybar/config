@@ -1,0 +1,97 @@
+{
+  "layer": "top",
+  "modules-left": ["sway/workspaces", "custom/playerctl"],
+  "modules-center": ["sway/window"],
+  "modules-right": ["cpu", "memory", "pulseaudio", "network", "battery", "battery#bat2", "clock", "tray"],
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{name}: {icon}",
+    "format-icons": {
+      "urgent": " ",
+      "focused": " ",
+      "default": " "
+    },
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": [],
+    },
+  },
+  "sway/window": {
+    "max-length": 50,
+    "tooltip": false
+  },
+  "clock": {
+    "format": "{:%I:%M %p %Z}",
+    "format-alt": "{:%m-%d-%Y}",
+    "tooltip": false
+  },
+  "cpu": {
+    "format": "  {usage:2}%",
+    "interval": 5,
+    "tooltip": false
+  },
+  "memory": {
+    "format": "  {percentage:2}%",
+    "interval": 5,
+    "tooltip": false
+  },
+  "battery": {
+    "bat": "BAT0",
+    "interval": 60,
+    "states": {
+      "good": 100,
+      "warning": 25,
+      "critical": 10
+    },
+    "format": "{icon}  {capacity}%",
+    "format-icons": [" ", " ", " ", " ", " "],
+    "tooltip": false
+  },
+  "battery#bat2": {
+    "bat": "BAT1",
+    "interval": 60,
+    "states": {
+      "good": 100,
+      "warning": 25,
+      "critical": 10
+    },
+    "format": "{icon}  {capacity}%",
+    "format-icons": [" ", " ", " ", " ", " "],
+    "tooltip": false
+  },
+  "network": {
+    "format-wifi": "  {essid} ({signalStrength}%)",
+    "format-ethernet": "󰈀  {ifname}",
+    "format-disconnected": "⚠  Disconnected",
+    "interval": 5,
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-muted": " ",
+    "format-icons": {
+      "headphones": " ",
+      "handsfree": " ",
+      "headset": " ",
+      "phone": " ",
+      "portable": " ",
+      "car": " ",
+      "default": [" ", " "]
+    },
+    "tooltip": false,
+    "on-click": "pavucontrol"
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10
+  }
+}

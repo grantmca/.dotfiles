@@ -14,6 +14,8 @@ record() {
   ffmpeg -f avfoundation -i "3:1" -r 30 -c:v h264 -crf 23 -pix_fmt yuv420p -c:a aac output.mp4
 }
 
+alias pacman="sudo pacman"
+
 decrypt_dotfiles() {
   encrypted_files=(
     ~/.dotfiles/github-copilot/.config/github-copilot/apps.json
@@ -39,4 +41,29 @@ encrypt_dotfiles() {
 
   ansible-vault encrypt "${encrypted_files[@]}"
 }
+# Add to your ~/.zshrc
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  if command -v xclip >/dev/null 2>&1; then
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
+  elif command -v wl-copy >/dev/null 2>&1 && command -v wl-paste >/dev/null 2>&1; then
+    alias pbcopy='wl-copy'
+    alias pbpaste='wl-paste'
+  fi
+fi
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  sound() {
+    pavucontrol
+  }
+  battery_status() {
+    for BAT in /sys/class/power_supply/BAT*; do
+      [ -e "$BAT" ] || continue  # Skip if the path doesn't exist
+      BAT_NAME=$(basename "$BAT")
+      STATUS=$(<"$BAT/status")
+      CAPACITY=$(<"$BAT/capacity")
+      echo "$BAT_NAME: $STATUS, $CAPACITY%"
+    done
+  }
+fi
 
