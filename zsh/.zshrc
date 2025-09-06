@@ -38,7 +38,9 @@ source "$HOME/.config/zsh/zsh-history"
 source "$HOME/.config/zsh/zsh-keys"
 
 #Enviroment variables set everywhere
+export SYSTEMD_EDITOR="nvim"
 export EDITOR="nvim"
+export VISUAL="nvim"
 export TERMINAL="Ghostty"
 export BROWSER="firefox"
 export TERM="xterm-256color"
@@ -46,17 +48,6 @@ export TERM="xterm-256color"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# pnpm
-export PNPM_HOME="/Users/DMcAllister/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 # bun completions
 [ -s "/Users/DMcAllister/.bun/_bun" ] && source "/Users/DMcAllister/.bun/_bun"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"

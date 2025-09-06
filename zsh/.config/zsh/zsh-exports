@@ -6,7 +6,8 @@ export PATH="$HOME/.gem/ruby/2.6.0/bin":$PATH
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 export PATH="$HOME/Library/Python/3.9/bin":$PATH
-export PATH=$(brew --prefix rustup)/bin:$PATH
+export PATH="$HOME/.cargo/env":$PATH
+# export PATH=$(brew --prefix rustup)/bin:$PATH
 export PYENV_ROOT="$HOME/.pyenv"
 export ZK_NOTEBOOK_DIR="$HOME/notebook"
 eval "$(rbenv init - zsh)"
@@ -21,3 +22,5 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
