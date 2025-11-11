@@ -4,9 +4,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 local add_desc = function(opts, desc)
-	local new_opts = opts
-	new_opts["desc"] = desc
-	return new_opts
+  local new_opts = opts
+  new_opts["desc"] = desc
+  return new_opts
 end
 
 local opts = { noremap = true, silent = false }
@@ -47,5 +47,3 @@ keymap("v", "K", "<cmd>m .-2<CR>==", opts)
 keymap("x", "J", "<cmd>move '>+1<CR>gv-gv", opts)
 keymap("x", "K", "<cmd>move '<-2<CR>gv-gv", opts)
 
--- Command --
--- Menu navigation
