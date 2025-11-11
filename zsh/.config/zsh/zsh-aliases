@@ -7,7 +7,7 @@ alias fgrep='fgrep --color=auto'
 
 # Color the list funcition
 alias ls='ls -G'
-
+alias cur="cursor-agent"
 alias spt-reset="brew services restart spotifyd"
 
 record() {

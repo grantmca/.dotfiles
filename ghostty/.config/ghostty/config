@@ -1,5 +1,5 @@
 font-family = "FiraCode Nerd Font"
-theme = tokyonight-storm
+theme = "noctis-lux"
 window-padding-color = background
 font-feature = -liga
 window-padding-y = 5,5

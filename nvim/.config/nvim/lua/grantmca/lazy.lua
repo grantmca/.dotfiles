@@ -19,7 +19,7 @@ require("lazy").setup(
   },
   {
     install = {
-      colorscheme = { "tokyonight-storm" },
+      colorscheme = { "noctus_lux" },
     },
     dev = {
       path = "~/Developer/plugins",
