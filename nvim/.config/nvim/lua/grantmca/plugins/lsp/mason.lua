@@ -43,6 +43,7 @@ return {
         "rubocop", -- ruby formatter
         "ruff",
         "stylua",
+        "eslint_d"
       },
     })
   end,

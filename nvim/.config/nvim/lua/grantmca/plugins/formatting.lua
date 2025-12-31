@@ -16,6 +16,9 @@ return {
           "ruff_fix",
           "ruff_format",
           "ruff_organize_imports",
+        },
+        typescript = {
+          "eslint_d"
         }
       },
       -- format_on_save = {
