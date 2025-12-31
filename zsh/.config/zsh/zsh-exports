@@ -7,7 +7,9 @@ export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 export PATH="$HOME/Library/Python/3.9/bin":$PATH
 export PATH="$HOME/.cargo/env":$PATH
-# export PATH=$(brew --prefix rustup)/bin:$PATH
+if command -v brew >/dev/null 2>&1; then
+  export PATH=$(brew --prefix rustup)/bin:$PATH
+fi
 export PYENV_ROOT="$HOME/.pyenv"
 export ZK_NOTEBOOK_DIR="$HOME/notebook"
 eval "$(rbenv init - zsh)"
