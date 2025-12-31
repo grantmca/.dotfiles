@@ -2,7 +2,7 @@ local env_var = os.getenv("LEET")
 if env_var == "on" then
   return {
     "kawre/leetcode.nvim",
-    build = ":TSUpdate html",
+    -- build = ":TSUpdate html",
     dependencies = {
       "nvim-telescope/telescope.nvim",
       -- "ibhagwan/fzf-lua",
