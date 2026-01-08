@@ -24,8 +24,8 @@ set $ws9 "9"
 exec swaymsg 'workspace $ws1; workspace $ws2; workspace $ws3; workspace $ws4; workspace $ws5; workspace $ws6; workspace $ws7; workspace $ws8; workspace $ws9;'
 
 ### Workspace Switching + force splith layout
-bindsym Control+Left exec bash -c "$HOME/.config/sway/right_workspace.sh"
-bindsym Control+Right exec bash -c "$HOME/.config/sway/left_workspace.sh"
+bindsym Control+Right exec bash -c "$HOME/.config/sway/right_workspace.sh"
+bindsym Control+Left exec bash -c "$HOME/.config/sway/left_workspace.sh"
 
 # Switch workspace with 3-finger swipe gestures
 bindgesture swipe:left exec bash -c "$HOME/.config/sway/right_workspace.sh"

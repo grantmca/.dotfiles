@@ -51,3 +51,6 @@ export TERM="xterm-256color"
 # bun completions
 [ -s "/Users/DMcAllister/.bun/_bun" ] && source "/Users/DMcAllister/.bun/_bun"
 
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
