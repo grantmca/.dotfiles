@@ -38,6 +38,13 @@ return {
       automatic_installation = true, -- not the same as ensure_installed
     })
 
+    local lspconfig = require("lspconfig")
+    mason_lspconfig.setup_handlers({
+      function(server_name)
+        lspconfig[server_name].setup({})
+      end,
+    })
+
     mason_tool_installer.setup({
       ensure_installed = {
         "rubocop", -- ruby formatter
