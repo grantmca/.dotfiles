@@ -1,9 +1,9 @@
 {
   "layer": "top",
-  "modules-left": ["sway/workspaces", "custom/playerctl"],
-  "modules-center": ["sway/window"],
+  "modules-left": ["hyprland/workspaces", "custom/playerctl"],
+  "modules-center": ["hyprland/window"],
   "modules-right": ["cpu", "memory", "pulseaudio", "network", "battery", "battery#bat2", "clock", "tray"],
-  "sway/workspaces": {
+  "hyprland/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
     "format": "{name}: {icon}",
@@ -24,7 +24,7 @@
       "9": [],
     },
   },
-  "sway/window": {
+  "hyprland/window": {
     "max-length": 50,
     "tooltip": false
   },
