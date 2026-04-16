@@ -1,7 +1,7 @@
 return {
   "lewis6991/gitsigns.nvim",
   event = "VeryLazy",
-  opts = function()
+  config = function()
     require("gitsigns").setup()
 
     local keymap = vim.keymap -- for conciseness
