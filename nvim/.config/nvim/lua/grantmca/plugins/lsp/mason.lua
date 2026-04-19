@@ -27,7 +27,7 @@ return {
         "cssls",
         "tailwindcss",
         "lua_ls",
-        "pyright",
+        "ty",
         "bashls",
         "cucumber_language_server",
         "jsonls",
