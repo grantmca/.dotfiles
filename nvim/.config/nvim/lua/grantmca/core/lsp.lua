@@ -1,21 +1,20 @@
+-- Force all LSP clients to use the same position encoding to avoid conflicts
+vim.lsp.config('*', {
+  capabilities = {
+    general = {
+      positionEncodings = { 'utf-16' },
+    },
+  },
+})
+
 local on_attach = function(env)
   local bufnr = env.buf
   local opts = { noremap = true, silent = true }
   local keymap = vim.api.nvim_buf_set_keymap
-  -- Built-in defaults in Neovim 0.12 (no need to map):
-  --   gd  → definition
-  --   gD  → declaration
-  --   K   → hover
-  --   gri → implementation
-  --   grr → references
-  --   gra → code action
-  --   grn → rename
-  --   gO  → document symbols
-  --   Ctrl-S (insert) → signature help
+  opts.desc = 'Go to definition'
+  keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
   opts.desc = 'Show LSP diagnostic'
   keymap(bufnr, 'n', 'gl', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-  opts.desc = 'Show LSP format'
-  keymap(bufnr, 'n', '<leader>lf', '<cmd>lua vim.lsp.buf.format{ async = true }<cr>', opts)
   opts.desc = 'Show LSP Info'
   keymap(bufnr, 'n', '<leader>li', '<cmd>checkhealth vim.lsp<cr>', opts)
   opts.desc = 'Next Diagnostic'

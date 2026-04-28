@@ -15,10 +15,10 @@ return {
       },
       formatters_by_ft = {
         ruby = {
-          "rubocop"
+          "rubocop",
         },
         lua = {
-          "stylua"
+          "stylua",
         },
         python = {
           "ruff_fix",
@@ -26,8 +26,8 @@ return {
           "ruff_organize_imports",
         },
         typescript = {
-          "eslint_d"
-        }
+          "eslint_d",
+        },
       },
       -- format_on_save = {
       -- 	lsp_fallback = true,
