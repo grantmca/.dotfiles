@@ -1,7 +1,7 @@
 return {
   "lewis6991/gitsigns.nvim",
   event = "VeryLazy",
-  opts = function()
+  config = function()
     require("gitsigns").setup()
 
     local keymap = vim.keymap -- for conciseness
@@ -29,5 +29,18 @@ return {
     keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", { desc = "Checkout commit" })
     keymap.set("n", "<leader>gC", "<cmd>Telescope git_bcommits<cr>", { desc = "Checkout commit for current file" })
     keymap.set("n", "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>", { desc = "Git Diff" })
+    keymap.set("n", "<leader>gO", function()
+      local changed_files = vim.fn.systemlist("git diff --name-only HEAD")
+      if vim.v.shell_error ~= 0 or #changed_files == 0 then
+        vim.notify("No changed files found", vim.log.levels.INFO)
+        return
+      end
+      local git_root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
+      for _, file in ipairs(changed_files) do
+        local abs_path = git_root .. "/" .. file
+        vim.cmd("edit " .. vim.fn.fnameescape(abs_path))
+      end
+      vim.notify("Opened " .. #changed_files .. " changed file(s)", vim.log.levels.INFO)
+    end, { desc = "Open all changed files" })
   end,
 }

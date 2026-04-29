@@ -1,5 +1,2 @@
-return {
-  "echasnovski/mini.comment",
-  event = { "BufReadPre", "BufNewFile" },
-  version = false,
-}
+-- Removed: Neovim 0.12 has built-in gc/gcc commenting
+return {}
