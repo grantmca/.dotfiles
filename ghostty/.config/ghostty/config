@@ -7,6 +7,8 @@ window-padding-x = 5,5
 window-decoration = false
 
 keybind = super+a=select_all
+keybind = super+c=copy_to_clipboard
+keybind = super+v=paste_from_clipboard
 
 keybind = shift+insert=paste_from_clipboard
 keybind = control+insert=copy_to_clipboard
