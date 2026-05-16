@@ -20,6 +20,28 @@ local mod = "SUPER"
 local term = "ghostty"
 local menu = "wofi --show drun"
 
+local function active_workspace_id()
+    local workspace = hl.get_active_workspace()
+    local id = tonumber(workspace and workspace.id)
+
+    if not id or id < 1 then
+        return 1
+    end
+
+    return id
+end
+
+local function focus_workspace_with_wrap(offset)
+    local next_id = active_workspace_id() + offset
+    local workspace = next_id > 9 and 1 or next_id < 1 and 9 or next_id
+
+    hl.dispatch(hl.dsp.focus({ workspace = workspace }))
+end
+
+local function send_shortcut(mods, key)
+    hl.dispatch(hl.dsp.send_shortcut({ mods = mods, key = key, window = "activewindow" }))
+end
+
 local function active_window_class()
     local window = hl.get_active_window()
     local class = window and window.class or ""
@@ -32,18 +54,18 @@ local function send_edit_shortcut(key)
 
     if class:find("ghostty", 1, true) or class:find("kitty", 1, true) then
         if key == "a" then
-            hl.exec_cmd("hyprctl dispatch sendshortcut SUPER,a,activewindow")
+            send_shortcut("SUPER", "a")
         elseif key == "c" then
-            hl.exec_cmd("hyprctl dispatch sendshortcut CTRL,Insert,activewindow")
+            send_shortcut("CTRL", "Insert")
         elseif key == "v" then
-            hl.exec_cmd("hyprctl dispatch sendshortcut SHIFT,Insert,activewindow")
+            send_shortcut("SHIFT", "Insert")
         end
 
         return
     end
 
     if key == "a" or key == "c" or key == "v" or key == "x" then
-        hl.exec_cmd("hyprctl dispatch sendshortcut CTRL," .. key .. ",activewindow")
+        send_shortcut("CTRL", key)
     end
 end
 
@@ -103,10 +125,6 @@ hl.config({
         disable_hyprland_logo = true,
         disable_splash_rendering = true,
     },
-
-    binds = {
-        allow_workspace_cycles = true,
-    },
 })
 
 ----------------
@@ -137,8 +155,12 @@ for i = 1, 9 do
 end
 
 -- Ctrl+Left/Right workspace switching
-hl.bind("CTRL + Right", hl.dsp.focus({ workspace = "+1" }))
-hl.bind("CTRL + Left", hl.dsp.focus({ workspace = "-1" }))
+hl.bind("CTRL + Right", function()
+    focus_workspace_with_wrap(1)
+end)
+hl.bind("CTRL + Left", function()
+    focus_workspace_with_wrap(-1)
+end)
 
 -- Multi-monitor navigation (matching Yabai: alt for move/resize)
 hl.bind("ALT + s", hl.dsp.focus({ monitor = -1 }))
@@ -179,8 +201,18 @@ hl.bind("ALT + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 hl.gesture({
     fingers = 3,
-    direction = "horizontal",
-    action = "workspace",
+    direction = "left",
+    action = function()
+        focus_workspace_with_wrap(1)
+    end,
+})
+
+hl.gesture({
+    fingers = 3,
+    direction = "right",
+    action = function()
+        focus_workspace_with_wrap(-1)
+    end,
 })
 
 ----------------
