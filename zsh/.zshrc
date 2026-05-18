@@ -32,6 +32,7 @@ plug "zap-zsh/completions"
 # Add Files For Organization
 source "$HOME/.config/zsh/zsh-aliases"
 # source "$HOME/.config/zsh/zsh-work-aliases"
+source "$HOME/.config/zsh/zsh-work-functions"
 source "$HOME/.config/zsh/zsh-exports"
 # source "$HOME/.config/zsh/zsh-work-exports"
 source "$HOME/.config/zsh/zsh-history"
@@ -50,6 +51,3 @@ export BROWSER="firefox"
 # bun completions
 [ -s "/Users/DMcAllister/.bun/_bun" ] && source "/Users/DMcAllister/.bun/_bun"
 
-
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
