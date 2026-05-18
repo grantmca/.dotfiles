@@ -1,25 +1,20 @@
 -- Shorten function name
-local keymap = vim.api.nvim_set_keymap --Remap space as leader key
+local keymap = vim.keymap.set
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-local add_desc = function(opts, desc)
-  local new_opts = opts
-  new_opts["desc"] = desc
-  return new_opts
-end
-
 local opts = { noremap = true, silent = false }
+
 keymap("", "<Space>", "<Nop>", opts)
 
 -- delete single character without copying into register
 keymap("n", "x", '"_x', opts)
 
 -- get rid of highlight
-keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", add_desc(opts, "Clear Highlight"))
-keymap("n", "<leader>w", "<cmd>w<CR>", add_desc(opts, "Save Buffer"))
+keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", { desc = "Clear Highlight" })
+keymap("n", "<leader>w", "<cmd>w<CR>", { desc = "Save Buffer" })
 
--- Navigate bNvimTreeToggleuffers
+-- Navigate buffers
 keymap("n", "<S-l>", "<cmd>bn<cr>", opts)
 keymap("n", "<S-h>", "<cmd>bp<cr>", opts)
 
@@ -46,4 +41,3 @@ keymap("v", "K", "<cmd>m .-2<CR>==", opts)
 -- Visual Block --
 keymap("x", "J", "<cmd>move '>+1<CR>gv-gv", opts)
 keymap("x", "K", "<cmd>move '<-2<CR>gv-gv", opts)
-

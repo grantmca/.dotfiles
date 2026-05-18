@@ -8,21 +8,16 @@ vim.lsp.config('*', {
 })
 
 local on_attach = function(env)
-  local bufnr = env.buf
-  local opts = { noremap = true, silent = true }
-  local keymap = vim.api.nvim_buf_set_keymap
-  opts.desc = 'Go to definition'
-  keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  opts.desc = 'Show LSP diagnostic'
-  keymap(bufnr, 'n', 'gl', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-  opts.desc = 'Show LSP Info'
-  keymap(bufnr, 'n', '<leader>li', '<cmd>checkhealth vim.lsp<cr>', opts)
-  opts.desc = 'Next Diagnostic'
-  keymap(bufnr, 'n', '<leader>lj', '<cmd>lua vim.diagnostic.jump({count=1})<cr>', opts)
-  opts.desc = 'Previous Diagnostic'
-  keymap(bufnr, 'n', '<leader>lk', '<cmd>lua vim.diagnostic.jump({count=-1})<cr>', opts)
-  opts.desc = 'LSP Quickfix'
-  keymap(bufnr, 'n', '<leader>lq', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+  local buf = env.buf
+  local map = function(lhs, rhs, desc)
+    vim.keymap.set('n', lhs, rhs, { buffer = buf, desc = desc })
+  end
+  map('gd', vim.lsp.buf.definition, 'Go to definition')
+  map('gl', vim.diagnostic.open_float, 'Show LSP diagnostic')
+  map('<leader>li', '<cmd>checkhealth vim.lsp<cr>', 'Show LSP Info')
+  map('<leader>lj', function() vim.diagnostic.jump({ count = 1 }) end, 'Next Diagnostic')
+  map('<leader>lk', function() vim.diagnostic.jump({ count = -1 }) end, 'Previous Diagnostic')
+  map('<leader>lq', vim.diagnostic.setloclist, 'LSP Quickfix')
 end
 
 vim.diagnostic.config({

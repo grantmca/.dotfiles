@@ -24,20 +24,19 @@ return {
     })
 
     local opts = { noremap=true, silent=false }
+    local keymap = vim.keymap.set
     -- Insert links in place
-    vim.api.nvim_set_keymap("n", "<leader>zi", "<Cmd>ZkInsertLink<CR>", opts)
+    keymap("n", "<leader>zi", "<Cmd>ZkInsertLink<CR>", opts)
 
     -- Create a new note after asking for its title.
-    vim.api.nvim_set_keymap("n", "<leader>zn", "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", opts)
+    keymap("n", "<leader>zn", "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", opts)
 
     -- Open notes associated with the selected tags.
-    vim.api.nvim_set_keymap("n", "<leader>zt", "<Cmd>ZkTags<CR>", opts)
+    keymap("n", "<leader>zt", "<Cmd>ZkTags<CR>", opts)
 
-    vim.api.nvim_set_keymap("v", "<leader>zf", ":'<,'>ZkMatch<CR>", opts)
+    keymap("v", "<leader>zf", ":'<,'>ZkMatch<CR>", opts)
     -- Search for the notes matching a given query.
-    vim.api.nvim_set_keymap("n", "-", "<Cmd>b#<CR>", opts)
-    -- Search for the notes matching the current visual selection.
-    vim.api.nvim_set_keymap("v", "<leader>zf", ":'<,'>ZkMatch<CR>", opts)
+    keymap("n", "-", "<Cmd>b#<CR>", opts)
 
     local commands = require("zk.commands")
 
@@ -46,6 +45,6 @@ return {
       zk.edit(options, { title = "Zk Orphans" })
     end)
 
-    vim.api.nvim_set_keymap("v", "<leader>zo", ":'<Cmd>ZkOrphans<CR>", opts)
+    keymap("n", "<leader>zo", "<Cmd>ZkOrphans<CR>", opts)
   end
 }
