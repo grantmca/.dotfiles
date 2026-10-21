@@ -27,11 +27,11 @@ return {
         "tailwindcss-language-server",
         "lua-language-server",
         "pyright",
+        "ty",
         "bash-language-server",
         "cucumber-language-server",
         "json-lsp",
         "gopls",
-        "ruby-lsp",
         -- Formatters & linters
         "ruff",
         "stylua",
@@ -46,12 +46,12 @@ return {
       "tailwindcss",
       "lua_ls",
       "pyright",
+      "ty",
       "bashls",
       "cucumber_language_server",
       "jsonls",
       "gopls",
       "ruby_lsp",
-      "rubocop",
     })
   end,
 }

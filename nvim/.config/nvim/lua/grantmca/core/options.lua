@@ -20,6 +20,7 @@ local options = {
   timeoutlen = 500, -- time to wait for a mapped sequence to complete (in milliseconds)
   undofile = true, -- enable persistent undo
   updatetime = 300, -- controls CursorHold frequency (4000ms default)
+  winborder = "rounded", -- border for floating windows (hover docs, signature help, diagnostics)
   writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
   expandtab = true, -- convert tabs to spaces
   shiftwidth = 2, -- set number of spaces used for auto indent
@@ -36,6 +37,7 @@ local options = {
   listchars = { tab = "» ", trail = "·", nbsp = "␣", extends = "❯", precedes = "❮" },
   foldmethod = "expr", -- fold method
   foldexpr = "v:lua.vim.treesitter.foldexpr()", -- fold expression
+  foldenable = true,
   foldlevel = 99, -- fold level
 }
 

@@ -17,7 +17,15 @@ return {
     appearance = {
       nerd_font_variant = 'mono'
     },
-    completion = { documentation = { auto_show = true } },
+    completion = {
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 200,
+        window = { border = 'rounded', max_width = 100, max_height = 30 },
+      },
+      menu = { border = 'rounded' },
+    },
+    signature = { enabled = true, window = { border = 'rounded' } },
     sources = {
       default = { 'lsp', 'copilot', 'snippets', 'buffer', 'path' },
       providers = {
@@ -34,3 +42,4 @@ return {
   },
   opts_extend = { "sources.default" }
 }
+

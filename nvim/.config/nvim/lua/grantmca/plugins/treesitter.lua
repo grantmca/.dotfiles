@@ -19,6 +19,7 @@ return {
           "markdown",
           "markdown_inline",
           "ruby",
+          "embedded_template",
           "cpp",
           "c",
           "bash",
